@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="icon" type="image/x-icon" href="img/logo-scout.ico">
     <title>Inscription</title>
-    <script src="script.js"></script>
 </head>
 <body>
     <header></header>
@@ -13,30 +13,30 @@
     <section >
         <div class="container">
             <div id="formulaire">
-                <form action="send_email.php" method="post">
+                <form action="/register" method="post">
                     <div class="logo">
-                        <img  id="logo-scout" src="img/logo-scout.png" alt="logo-scout">
+                        <img  id="logo-scout" src="/img/logo-scout.png" alt="logo-scout">
                     </div>
                     
                     <div>
                         <label for="Anarana">Anarana</label>
-                        <input type="text" name="Anarana" id="Anarana">
+                        <input type="text" name="anarana" id="anarana">
                     </div>
                     <div>
                         <label for="Fanampiny">Fanampiny</label>
-                        <input type="text" name="Fanampiny" id="Fanampiny">
+                        <input type="text" name="fanampiny" id="fanampiny">
                     </div>
                     <div>
                         <label for="Fokonolona">Fokonolona</label>
-                        <input type="text" name="Fokonolona" id="Fokonolona">
+                        <input type="text" name="fokonolona" id="fokonolona">
                     </div>
                     <div>
                         <label for="Fivondronana">Fivondronana</label>
-                        <input type="text" name="Fivondronana" id="Fivondronana">
+                        <input type="text" name="fivondronana" id="fivondronana">
                     </div>
                     <div>
                         <label for="Ambaratonga">Ambaratonga</label>
-                        <select name="Ambaratonga" id="Ambaratonga">
+                        <select name="ambaratonga" id="ambaratonga">
                             <option value="Mpiomana">Mpiomana</option>
                             <option value="Mpitarika">Mpitarika</option>
                             <option value="Mpihary">Mpihary</option>
@@ -46,10 +46,10 @@
                     </div>
                     <div>
                         <label for="Contact">Contact</label>
-                        <input type="text" name="Contact" id="Contact">
+                        <input type="number" name="contact" id="contact">
                     </div>
                     <div class="btn-div">
-                        <input id="submit" type="button" value="Hisoratra">
+                        <input id="submit" type="submit" value="Hisoratra">
                     </div>
                 </form>
             </div>
@@ -59,30 +59,32 @@
     
                 <h2>FITAOVANA</h2>
                 <div>
-                    <p>Fanamiana ara-dalana</p>
-                    <p>Baiboly sy fihirana</p>
-                    <p>Ditaovana fitondra mivory</p>
-                    <p>Lamba firakotra</p>
+                    <% infos[0].fitaovana.forEach(text => { %>
+                        <p><%= text %></p>
+                    <% }) %>
                 </div>
                 
                 <h2>FOTOANA</h2>
                 <div>
-                    <p>Fanombohana: Asabotsy 30 Novambra 2024</p>
-                    <p>@7 ora maraina</p>
-                    <p>Famaranana: Alahady 01 Desambra 2024</p>
-                    <p>@7 ora maraina</p>
+                    <% infos[0].fotoana.forEach(time => { %>
+                        <p><%= time %></p>
+                    <% }) %>
                 </div>
     
                 <h2>TOERANA</h2>
                 <div>
-                    <p>Kolejy Teolojika Mamory Ivato</p>
+                    <% infos[0].toerana.forEach(place => { %>
+                        <p><%= place %></p>
+                    <% }) %>
                 </div>
     
                 <h2>SARANDASY</h2>
                 <div>
-                    <p>Vola: 10.000ar</p>
-                    <p>Vary: 2kp isan'olona</p>
+                    <% infos[0].sarandasy.forEach(price => { %>
+                        <p><%= price %></p>
+                    <% }) %>
                 </div>
+                
             </div>
     
         </div>
@@ -104,6 +106,7 @@
             </div>
         </div>
     </footer>
-
+    
+    <script src="script.js"></script>
 </body>
 </html>
