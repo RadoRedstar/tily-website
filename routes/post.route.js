@@ -1,5 +1,5 @@
 const express = require("express");
-const { setClient } = require("../controllers/post.controller");
+const { setClient } = require("../controllers/home.controller");
 const router = express.Router();
 
 
