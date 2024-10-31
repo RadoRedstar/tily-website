@@ -14,7 +14,8 @@ module.exports.inscription = async (req, res) => {
             ambaratonga: req.body.ambaratonga,
             contact: req.body.contact,
         });
-        res.redirect("/home")
+        return res.redirect("/?message=inscription_reussie");
+
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }

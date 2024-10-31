@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <link rel="icon" type="image/x-icon" href="img/logo-scout.ico">
+    <link rel="icon" type="image/x-icon" href="/img/logo-scout.ico">
     <title>Inscription</title>
 </head>
 <body>
@@ -107,6 +107,51 @@
         </div>
     </footer>
     
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="script.js"></script>
+    <script>
+        window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        if (message === 'inscription_reussie') {
+            alert('Inscription réussie !');
+        }
+    }
+
+        $(document).ready(function() {
+            const submitButton = $('#submit').prop('disabled', true); // Utilisation de jQuery pour désactiver le bouton
+            const fields = [
+                $("#anarana").get(0),
+                $("#fanampiny").get(0),
+                $("#fokonolona").get(0),
+                $("#fivondronana").get(0),
+                $("#ambaratonga").get(0),
+                $("#contact").get(0)
+            ];
+
+            // Fonction pour vérifier l'état des champs
+            function checkFields(e) {
+                // Vérifie si tous les champs sont remplis
+                const allFilled = fields.every(field => {
+                    if (field.tagName === "SELECT") {
+                        return field.value !== ""; // Vérifie que le select n'est pas vide
+                    }
+                    return field.value.trim() !== ""; // Vérifie que le champ texte n'est pas vide
+                });
+
+                console.log(allFilled);
+
+                // Active ou désactive le bouton submit en fonction de l'état des champs
+                submitButton.prop('disabled', !allFilled);
+            }
+
+            // Ajoute des écouteurs d'événements pour chaque champ
+            fields.forEach(input => {
+                $(input).on("input change", checkFields); // Utilisation de jQuery pour ajouter l'écouteur d'événements
+            });
+        });
+
+    </script>
 </body>
 </html>

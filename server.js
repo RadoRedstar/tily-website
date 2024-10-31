@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, './public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
-app.use("/home", require("./routes/home.route"));
+app.use("/", require("./routes/home.route"));
 app.use("/register", require("./routes/inscrits.route"))
 
 app.use(admin_uri, require("./routes/admin.route"));

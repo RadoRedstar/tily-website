@@ -20,7 +20,7 @@ module.exports.update = async (req, res) => {
             },
             { new: true }
         );
-        res.redirect("/home")
+        res.redirect("/")
     } catch (error) {
         return res.status(500).json({ message: error.message });
     }
